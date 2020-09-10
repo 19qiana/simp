@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add User</title>
+    </head>
+    <body>
+        <h1>Users</h1>
+
+        <form method="POST" action="/add-users">
+            <div>
+                <label>Name</label>
+                <input type="text" name="name" required />
+            </div>
+            <div>
+                <label>Desired Username</label>
+                <input type="text" name="username" required />
+            </div>
+            <div>
+                <label>Password</label>
+                <input type="text" name="password" required />
+            </div>
+            <div>
+                <button type="submit">Create new user</button>
+            </div>
+        </form>
+    </body>
+</html>
