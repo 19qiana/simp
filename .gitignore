@@ -1,2 +1,3 @@
-#ignore backend node modules
+#ignore backend node module
 backend/node_modules/*
+.vscode/
