@@ -2,8 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-require('dotenv').config();
-
+require('dotenv').config({path: '../.env'});
 const app = express();
 
 app.use(cors());
@@ -16,7 +15,6 @@ app.use(express.urlencoded({ extended: false}));
 app.use('/static', express.static(path.join(`${__dirname}/public`)));
 
 app.get('/', (req, res) => res.send('Home Route'));
-
 const port = process.env.PORT || 8000;
 
 mongoose
@@ -28,4 +26,7 @@ mongoose
     })
     .then(() => {
         app.listen(port, () => console.log(`Server and Database running on ${port}, http://localhost:${port}`));
+    })
+    .catch((err) => {
+        console.log(err);
     });
