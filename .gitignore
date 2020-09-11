@@ -1,5 +1,5 @@
 #ignore backend node module
-backend/node_modules/*
 .vscode/
 .env
 .DS_Store
+*/node_modules/*
