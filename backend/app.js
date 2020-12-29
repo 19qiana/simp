@@ -16,16 +16,15 @@ app.use(express.urlencoded({ extended: false}));
 app.use('/static', express.static(path.join(`${__dirname}/public`)));
 
 app.use('/', adminRoute);
-const port = process.env.PORT || 8000;
 mongoose
-    .connect(process.env.DB_HOST, {
+    .connect(process.env.Connection_String, {
         useCreateIndex: true,
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useFindAndModify: false,
     })
     .then(() => {
-        app.listen(port, () => console.log(`Server and Database running on ${port}, http://localhost:${port}`));
+        console.log("Successfully connected to mongo Cloud DB");
     })
     .catch((err) => {
         console.log(err);
