@@ -18,7 +18,8 @@
     "express": "^4.17.1",
     "finnhub": "^1.2.1",
     "mongoose": "^5.11.9",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "request": "^2.88.2"
   },
   "devDependencies": {},
   "description": ""

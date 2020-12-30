@@ -5,6 +5,8 @@ const cors = require('cors');
 require('dotenv').config({path: '../.env'});
 const app = express();
 const adminRoute = require('./routes/admin');
+var api_manager = require('./business_logic/api_manager');
+var api_manager = new api_manager();
 
 app.use(cors());
 
@@ -29,3 +31,8 @@ mongoose
     .catch((err) => {
         console.log(err);
     });
+
+api_manager.getCompanyQuote('AAPL');
+api_manager.getBasicFinancials('AAPL');
+api_manager.getIndex('^DJI');
+
