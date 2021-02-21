@@ -6,6 +6,8 @@ const cors = require('cors');
 require('dotenv').config({path: '../.env'});
 const app = express();
 const adminRoute = require('./routes/admin');
+var api_manager = require('./business_logic/api_manager');
+var api_manager = new api_manager();
 
 app.use(cors());
 
@@ -22,15 +24,20 @@ let apiManager = new Api_Manager(process);
 apiManager.printKey();
 
 mongoose
-    .connect(process.env.DB_HOST, {
+    .connect(process.env.Connection_String, {
         useCreateIndex: true,
         useUnifiedTopology: true,
         useNewUrlParser: true,
         useFindAndModify: false,
     })
     .then(() => {
-        app.listen(port, () => console.log(`Server and Database running on ${port}, http://localhost:${port}`));
+        console.log("Successfully connected to mongo Cloud DB");
     })
     .catch((err) => {
         console.log(err);
     });
+
+api_manager.getCompanyQuote('AAPL');
+api_manager.getBasicFinancials('AAPL');
+api_manager.getIndex('^DJI');
+
