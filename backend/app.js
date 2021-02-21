@@ -1,3 +1,4 @@
+const Api_Manager = require('./business_logic/api_manager.js');
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -17,6 +18,9 @@ app.use('/static', express.static(path.join(`${__dirname}/public`)));
 
 app.use('/', adminRoute);
 const port = process.env.PORT || 8000;
+let apiManager = new Api_Manager(process);
+apiManager.printKey();
+
 mongoose
     .connect(process.env.DB_HOST, {
         useCreateIndex: true,
