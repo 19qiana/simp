@@ -38,6 +38,6 @@ mongoose
         console.log(err);
     });
 
-api_manager.getCompanyQuote('AAPL');
-api_manager.getBasicFinancials('AAPL');
-api_manager.getIndex('^DJI');
+// api_manager.getCompanyQuote('AAPL');
+// api_manager.getBasicFinancials('AAPL');
+// api_manager.getIndex('^DJI');
